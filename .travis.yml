@@ -1,0 +1,15 @@
+sudo: required
+
+language: c
+
+compiler:
+    - clang
+    - gcc
+
+before_install:
+      # travis-ci uses Ubuntu 12.04 and we need a later version of autoconf...
+    - sudo add-apt-repository ppa:costamagnagianfranco/autoconf
+    - sudo apt-get update -qq
+    - sudo apt-get install -y autoconf
+
+script: ./quickcheck.sh
